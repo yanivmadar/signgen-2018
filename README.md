@@ -1,3 +1,11 @@
+
+The web site is up here: https://signgen-2018.firebaseapp.com/
+
+Firebase account: yan.mad.dev@gmail.com (Yaniv Madar can help with the password)
+
+code repo: https://github.com/yanivmadar/signgen-2018 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

@@ -14,6 +14,7 @@ class App extends React.Component {
         <p className="App-intro">
          more to come!
         </p>
+        <img src="/images/signgen_template.png"/>
       </div>
     );
   }
