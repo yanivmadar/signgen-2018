@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "firebase deploy --token 1/aaENWIyvywloBDCMHyxdyZgB7qFXYyzLV7NQ3JaxNgA"
   },
   "devDependencies": {
     "@types/dom-to-image": "^2.6.0",
