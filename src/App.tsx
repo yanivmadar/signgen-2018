@@ -3,7 +3,6 @@ import './App.scss';
 
 import ContentEditable from 'react-contenteditable'
 import { DomToImage } from './dom2image/dom2image';
-import logo from './logo.svg';
 
 export const App: React.FC<{}> = () => {
 
@@ -16,8 +15,7 @@ export const App: React.FC<{}> = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to signgen 2018</h1>
+      <h1 className="App-title">Welcome to signgen 2018</h1>
       </header>
       <p className="App-intro">
         more to come!
