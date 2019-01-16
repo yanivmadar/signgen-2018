@@ -1,0 +1,43 @@
+{
+  "title": "Your Details Form",
+  "type": "object",
+  "required": [
+     "name"
+  ],
+  "properties": {
+     "name": {
+        "type": "string",
+        "default": ""
+     },
+     "title": {
+        "title": "",
+        "type": "string",
+        "default": ""
+     },
+     "lob": {
+      "title": "",
+      "type": "string",
+        "enum": [
+           "Entertainment",
+           "LOB2",
+           "LOB3"
+        ]
+     },
+     "domain": {
+        "type": "string",
+        "enum": [
+           "Advertisement",
+           "Domain2",
+           "Domain3"
+        ]
+     },
+     "phone": {
+        "type": "string",
+        "title": "phone"
+     },
+     "email": {
+        "type": "string",
+        "title": "Select Domain"
+     }
+  }
+}
