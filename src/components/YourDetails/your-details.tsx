@@ -6,7 +6,7 @@ import './your-details.scss';
 import formSchema from './form/schema.json';
 import formUiSchema from './form/ui-schema.json';
 import { JSONSchema6 } from 'json-schema';
-import { IFormData } from '../../model/form';
+import { IFormData } from '../../models/form.model';
 
 interface IYourDetailsProps {
   formData: IFormData;

@@ -2,11 +2,10 @@ import * as React from 'react';
 import  { useState } from 'react';
 import './App.scss';
 
-import { DomToImage } from './components/dom2image/dom2image';
 import { YourDetails } from './components/YourDetails/your-details';
 import { Preview } from './components/Preview/preview';
 import { HowTo } from './components/HowTo/how-to';
-import { IFormData, INITIAL_FORM_DATA } from './model/form';
+import { IFormData, INITIAL_FORM_DATA } from './models/form.model';
 import { IChangeEvent } from 'react-jsonschema-form';
 
 export const App: React.FC<{}> = () => {
@@ -36,7 +35,7 @@ export const App: React.FC<{}> = () => {
         /></h1>
         <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTUzMzQzOTkxMDAwMDgxNzA2/jason-statham-attends-the-press-conference-of-director-f-gary-grays-film-the-fate-of-the-furious-on-march-23-2017-in-beijing-china-photo-by-vcg_vcg-via-getty-images-square.jpg" />
       </div> */}
-      {/* <DomToImage elementId="domToConvert" /> */}
+      {/* */}
       <div className="row">
       <div className="col">
        <YourDetails formData={formData} updateForm={updateForm}/>

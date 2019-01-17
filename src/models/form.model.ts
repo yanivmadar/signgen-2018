@@ -3,6 +3,8 @@ export interface IFormData{
   title: string;
   lob: string;
   domain: string;
+  phone: string;
+  email: string;
 }
 
 export const INITIAL_FORM_DATA: IFormData = {
@@ -10,4 +12,6 @@ export const INITIAL_FORM_DATA: IFormData = {
   title: '',
   lob: '',
   domain: '',
+  phone: '',
+  email: '',
 };

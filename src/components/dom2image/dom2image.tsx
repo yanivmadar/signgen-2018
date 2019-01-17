@@ -14,5 +14,5 @@ export const DomToImage: React.FC<IDom2ImageProps> = ({elementId})=>{
     .then( (blob: any) => {
         saveAs(blob, 'my-node.png');
     });  };
-  return <button onClick={saveImage}>Save Image</button>
+  return <button onClick={saveImage} className="btn btn-primary" type="button">Copy to clipboard</button>
 };

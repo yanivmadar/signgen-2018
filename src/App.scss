@@ -1,5 +1,5 @@
 // Your variable overrides
-$card-bg: white;
+// $card-bg: white;
 $card-cap-bg: black;
 $card-cap-color: white;
 
@@ -7,7 +7,7 @@ $input-border-width: 0;
 $input-bg: transparent;
 
 
-$body-bg: rgb(219, 219, 219);
+$body-bg: rgb(236, 236, 236);
 $body-color: #111;
 
 // Bootstrap and its default variables
@@ -29,7 +29,7 @@ $body-color: #111;
     color: black;
   }
 
-  .col{ max-width: 25%;}
+  .col{ max-width: 26%;}
   .preview{ max-width: 50%}
 }
 
@@ -42,9 +42,5 @@ $body-color: #111;
 
 button[type=submit]{
   display: none;
-}
-
-#domToConvert{
-  border: 1px solid blue;
 }
 
