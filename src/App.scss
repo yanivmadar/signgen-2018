@@ -1,30 +1,47 @@
-.App {
-  text-align: center;
+// Your variable overrides
+$card-bg: white;
+$card-cap-bg: black;
+$card-cap-color: white;
+
+$input-border-width: 0;
+$input-bg: transparent;
+
+
+$body-bg: rgb(219, 219, 219);
+$body-color: #111;
+
+// Bootstrap and its default variables
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.container-fluid{
+  background: transparent;
+  h4,
+  h3{
+    line-height: 2em;
+    padding: .7em;
+    background: black;
+    color: white;
+    margin: 0;
+  }
+
+  h3{
+    background: white;
+    color: black;
+  }
+
+  .col{ max-width: 25%;}
+  .preview{ max-width: 50%}
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+
+.form-group.field-string{
+  label{display: none;}
+  border-bottom: 1px solid gray;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+button[type=submit]{
+  display: none;
 }
 
 #domToConvert{
