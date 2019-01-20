@@ -1,15 +1,24 @@
 {
   "name": {
-    "ui:placeholder": "First & Last Name"
+    "ui:placeholder": "First Name"
+  },
+  "last": {
+    "ui:placeholder": "Last Name"
   },
   "title": {
     "ui:placeholder": "Title"
   },
+  "domain": {
+    "ui:placeholder": "Domain"
+  },
+  "lob": {
+    "ui:placeholder": "LOB"
+  },
   "phone": {
-     "ui:placeholder": "Phone Number",
-     "ui:options": {
-        "inputType": "tel"
-     }
+    "ui:placeholder": "Phone Number",
+    "ui:options": {
+      "inputType": "tel"
+    }
   },
   "email": {
     "ui:placeholder": "Mail",

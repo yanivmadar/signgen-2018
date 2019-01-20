@@ -1,5 +1,5 @@
 import * as React from 'react';
-import  { useState } from 'react';
+import { useState } from 'react';
 import './App.scss';
 
 import { YourDetails } from './components/YourDetails/your-details';
@@ -7,18 +7,24 @@ import { Preview } from './components/Preview/preview';
 import { HowTo } from './components/HowTo/how-to';
 import { IFormData, INITIAL_FORM_DATA } from './models/form.model';
 import { IChangeEvent } from 'react-jsonschema-form';
+import CopyToClipboard from 'react-copy-html-to-clipboard';
+import { renderEmail } from 'react-html-email'
+
+import { emailFromProps } from './components/Preview/email.template';
+
+export const DEFAULT_AVATAR = 'images/att-logo.png';
 
 export const App: React.FC<{}> = () => {
 
-  const [mylabel, setMyLabel] = useState('Hello image ! (replace me please !!!)');
+  const [copied, setCopied] = useState(false);
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [avatar, setAvatar] = useState('');
 
-  const update = (ev: any) => {
-    setMyLabel(ev.target.value);
-  };
+  const updateForm = ({ formData }: IChangeEvent<IFormData>) => setFormData(formData);
 
-  const [formData, setFormData] = useState<IFormData>(INITIAL_FORM_DATA);
-
-  const updateForm = ({formData}: IChangeEvent<IFormData>)=>setFormData(formData);
+  const copy = ()=> {
+    console.log(renderEmail(emailFromProps(formData, avatar)));
+    renderEmail(emailFromProps(formData, avatar));};
 
   return (
     <div className="container-fluid text-left">
@@ -26,27 +32,23 @@ export const App: React.FC<{}> = () => {
       <h3>
         Create your Email Signature in few minutes!
       </h3>
-      {/* <img src="/images/signgen_template.png"/> */}
-      {/* <div id="domToConvert">
-        <h1>      <ContentEditable
-          html={mylabel} // innerHTML of the editable div
-          disabled={false} // use true to disable edition
-          onChange={update} // handle innerHTML change
-        /></h1>
-        <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTUzMzQzOTkxMDAwMDgxNzA2/jason-statham-attends-the-press-conference-of-director-f-gary-grays-film-the-fate-of-the-furious-on-march-23-2017-in-beijing-china-photo-by-vcg_vcg-via-getty-images-square.jpg" />
-      </div> */}
-      {/* */}
       <div className="row">
-      <div className="col">
-       <YourDetails formData={formData} updateForm={updateForm}/>
+        <div className="col">
+          <YourDetails formData={formData} updateForm={updateForm} avatar={avatar} updateAvatar={setAvatar} />
+        </div>
+        <div className="col preview">
+          <Preview formData={formData} avatar={avatar}/>
+        </div>
+        <div className="col">
+          <HowTo />
+        </div>
       </div>
-      <div className="col preview">
-        <Preview formData={formData}/>
-      </div>
-      <div className="col">
-        <HowTo/>
-      </div>
-      </div>
+      <CopyToClipboard text={ copy }
+        options={{ asHtml: true }}
+        onCopy={(text, result) => setCopied(result)}>
+        <button>Copy to clipboard</button>
+      </CopyToClipboard>
+      <h3 style={{ visibility: copied ? 'visible' : 'hidden' }}>Copied To Clipboard !</h3>
     </div>
   );
 };
