@@ -30,8 +30,8 @@ export const Preview: React.FC<IPreviewProps> = ({formData})=>{
     <CopyToClipboard text={clipboardText}
         options={{ asHtml: true }}
         onCopy={(text, result) => { console.log(`on copied: ${result}`, text)}}>
-        <button className="btn btn-primary" onMouseDown={updateText}>Copy to clipboard</button>
-      </CopyToClipboard>
+        <button className="btn btn-primary float-right" onMouseDown={updateText}>Copy to clipboard</button>
+    </CopyToClipboard>
       {/* <h3 style={{ visibility: copied ? 'visible' : 'hidden' }}>Copied To Clipboard !</h3> */}
   </Fragment>;
 };
