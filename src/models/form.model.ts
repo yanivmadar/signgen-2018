@@ -1,4 +1,6 @@
 export interface IFormData{
+  avatarFile?: string;
+  avatar: string;
   name: string;
   last: string;
   title: string;
@@ -9,6 +11,7 @@ export interface IFormData{
 }
 
 export const INITIAL_FORM_DATA: IFormData = {
+  avatar: '',
   name: '',
   last: '',
   title: '',

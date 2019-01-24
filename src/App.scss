@@ -1,32 +1,24 @@
-// Your variable overrides
-// $card-bg: white;
-$card-cap-bg: black;
-$card-cap-color: white;
 
-$input-border-width: 0;
-$input-bg: transparent;
-
-
-$body-bg: rgb(236, 236, 236);
-$body-color: #111;
-
-// Bootstrap and its default variables
-@import 'node_modules/bootstrap/scss/bootstrap';
 
 .container-fluid{
   background: transparent;
-  h4,
-  h3{
-    line-height: 2em;
-    padding: .7em;
-    background: black;
-    color: white;
-    margin: 0;
-  }
 
-  h3{
-    background: white;
-    color: black;
+  .navbar{
+    height: 60px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
+    h3{
+      background:url('/images/logo.svg') no-repeat left center;
+      text-indent: 8.9rem;
+    height: 2.8rem;
+    line-height: 2.2rem;
+    // font-size: 1.7re
+    color: white;
+    }
+  }
+  legend{
+    font-size: 2.4rem;
+    color: #4a4a4a;
   }
 
   .col{ max-width: 26%;}

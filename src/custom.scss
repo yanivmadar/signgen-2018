@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Your variable overrides
+// $card-bg: white;
+$card-cap-bg: black;
+$card-cap-color: white;
+$card-bg: blue;
+$card-cap-bg: rgb(61,52,65);
+
+$input-border-width: 0;
+$input-bg: transparent;
+
+
+$body-bg: #f2f2f2;
+$body-color: #111;
+$dark: #021934;
+$spacer: 2rem;
+$input-btn-font-size: 1.4rem;
+
+// Bootstrap and its default variables
+@import 'node_modules/bootstrap/scss/bootstrap';
