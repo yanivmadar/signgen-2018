@@ -1,15 +1,15 @@
 form{
   .form-group.field-string{
-    &:nth-child(2),
+    &:nth-child(4),
     &:nth-child(3){
     float: left;
     width: 49%;
     }
-    &:nth-child(2){
+    &:nth-child(3){
       margin-right: 2%;
     }
 
-    &:nth-child(4){
+    &:nth-child(5){
       clear: both;
     }
     }

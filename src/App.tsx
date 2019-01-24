@@ -7,48 +7,47 @@ import { Preview } from './components/Preview/preview';
 import { HowTo } from './components/HowTo/how-to';
 import { IFormData, INITIAL_FORM_DATA } from './models/form.model';
 import { IChangeEvent } from 'react-jsonschema-form';
-import CopyToClipboard from 'react-copy-html-to-clipboard';
-import { renderEmail } from 'react-html-email'
-
 import { emailFromProps } from './components/Preview/email.template';
 
+const FILE_READER = new window['FileReader']();
+
 export const DEFAULT_AVATAR = 'images/att-logo.png';
+export const DEMO_AVATAR = 'https://pickaface.net/gallery/avatar/Opi51c74d6edb145.png';
 
 export const App: React.FC<{}> = () => {
 
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
-  const [avatar, setAvatar] = useState('');
 
-  const updateForm = ({ formData }: IChangeEvent<IFormData>) => setFormData(formData);
+  const updateForm = ({ formData }: IChangeEvent<IFormData>) => {
+    if (formData.avatarFile) {
+      // formData.avatar = FILE_READER.readAsDataURL(formData.avatarFile);
+      formData.avatar = formData.avatarFile;
+    }
+    setFormData(formData);
+    setCopied(false);
+  };
 
-  const copy = ()=> {
-    console.log(renderEmail(emailFromProps(formData, avatar)));
-    renderEmail(emailFromProps(formData, avatar));};
 
   return (
     <div className="container-fluid text-left">
-      <h4 className="">Email Signature Generator</h4>
+      <nav className="navbar navbar-dark bg-dark">
+        <h3 className="mb-0">Email Signature Generator</h3>
+      </nav>
       <h3>
         Create your Email Signature in few minutes!
       </h3>
       <div className="row">
         <div className="col">
-          <YourDetails formData={formData} updateForm={updateForm} avatar={avatar} updateAvatar={setAvatar} />
+          <YourDetails formData={formData} updateForm={updateForm} />
         </div>
         <div className="col preview">
-          <Preview formData={formData} avatar={avatar}/>
+          <Preview formData={formData} />
         </div>
         <div className="col">
           <HowTo />
         </div>
       </div>
-      <CopyToClipboard text={ copy }
-        options={{ asHtml: true }}
-        onCopy={(text, result) => setCopied(result)}>
-        <button>Copy to clipboard</button>
-      </CopyToClipboard>
-      <h3 style={{ visibility: copied ? 'visible' : 'hidden' }}>Copied To Clipboard !</h3>
     </div>
   );
 };

@@ -1,8 +1,16 @@
-$card-bg: 'blue';
-$card-cap-bg: "red";
 
-address p{
-  border: dotted blue 0px;
-  border-width: 1px 0 1px 0;
-  padding: .4em;
+.card{
+  height: 386px;
+}
+
+
+table.att-sign{
+  h5,h6{
+    margin: 0;
+  font: bold 11px arial;}
+  h6{
+    line-height: 1.45;
+    white-space: nowrap;
+    margin-bottom: 8px;
+  }
 }
