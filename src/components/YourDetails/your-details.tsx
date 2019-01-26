@@ -18,7 +18,7 @@ interface IYourDetailsProps {
 export const YourDetails: React.FC<IYourDetailsProps> = ({ formData, updateForm }) => {
 
   return <Fragment>
-    <img className="avatar" src={formData.avatar}/>
+    {/* <img className="avatar" src={formData.avatar}/> */}
     <Form schema={formSchema as JSONSchema6}
       uiSchema={formUiSchema as UiSchema}
       formData={formData}

@@ -30,14 +30,15 @@ export const App: React.FC<{}> = () => {
 
 
   return (
-    <div className="container-fluid text-left">
+    <div className="container-fluid text-left p-0">
       <nav className="navbar navbar-dark bg-dark">
-        <h3 className="mb-0">Email Signature Generator</h3>
+      <a href="#"><h3 className="mb-0 att">Email Signature Generator</h3></a>
+      <a href="#"><h3 className="mb-0 float-right pop"><b>People</b> for <b>People</b></h3></a>
       </nav>
-      <h3>
+      <h1 className="head bg-white">
         Create your Email Signature in few minutes!
-      </h3>
-      <div className="row">
+      </h1>
+      <div className="row p-4">
         <div className="col">
           <YourDetails formData={formData} updateForm={updateForm} />
         </div>

@@ -1,8 +1,26 @@
 
 .card{
-  height: 386px;
+  height: 38.6rem;
+  padding-bottom: 7.7rem;
+
+  .card-header{
+    font-size: 1.3rem;
+  }
+
 }
 
+.copy.btn{
+  font-size:1.7rem;
+  padding: .5rem 1rem;
+
+  &:before{
+    content: '';
+    float: left;
+    width: 28.8px;
+    height: 28.8px;
+    background: url(/images/copy-icon.svg) no-repeat;
+  }
+}
 
 table.att-sign{
   h5,h6{

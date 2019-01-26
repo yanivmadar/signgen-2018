@@ -19,9 +19,9 @@ export const Preview: React.FC<IPreviewProps> = ({formData})=>{
     setClipboardText(renderEmail(emailFromProps(formData)));
   };
 
-  return <Fragment><legend>Preview</legend>
-    <div className="card shadow-sm mb-5 bg-white rounded">
-      <div className="card-header">New Mail</div>
+  return <Fragment><legend className="mb-3">Preview</legend>
+    <div className="card shadow-sm bg-white rounded border-0 pb-5 mb-3">
+      <div className="card-header font-weight-bold">New Email</div>
       <div className="card-body">
 
       </div>
@@ -30,7 +30,7 @@ export const Preview: React.FC<IPreviewProps> = ({formData})=>{
     <CopyToClipboard text={clipboardText}
         options={{ asHtml: true }}
         onCopy={(text, result) => { console.log(`on copied: ${result}`, text)}}>
-        <button className="btn btn-primary float-right" onMouseDown={updateText}>Copy to clipboard</button>
+        <button className="copy btn btn-primary float-right" onMouseDown={updateText}>Copy to clipboard</button>
     </CopyToClipboard>
       {/* <h3 style={{ visibility: copied ? 'visible' : 'hidden' }}>Copied To Clipboard !</h3> */}
   </Fragment>;

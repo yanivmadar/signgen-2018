@@ -7,7 +7,7 @@ interface IHowToProps{
 export const HowTo: React.FC<IHowToProps> = ()=>{
 
   return <div className="how-to">
-    <legend>How to apply ?</legend>
+    <legend className="mb-3">How to apply ?</legend>
     <ol>
       <li>Click on <b>Copy to clipboard</b> button.</li>
       <li>Go to Office365 or Outlook.com. </li>
