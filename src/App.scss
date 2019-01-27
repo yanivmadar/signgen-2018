@@ -1,16 +1,19 @@
+@import '_globals';
 
 
 .container-fluid{
   background: transparent;
 
-  .head{
-    line-height: 5.1rem;
-    padding: 0 2.6rem;
-  }
 
-  .navbar{
-    height: 60px;
+  header{
+    a{
+      line-height: 5.1rem;
+    }
+    padding: 0 2.6rem;
+    height: 6rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    justify-content: space-between;
+    background-color: $navy;
 
     h3{
       &.att{
@@ -34,6 +37,7 @@
     background-size: auto;
     }
   }
+
   legend{
     font-size: 2.4rem;
     color: #4a4a4a;

@@ -1,4 +1,6 @@
-@import './custom.scss';
+@import '~react-md/src/scss/react-md';
+@import '_variables';
+@include react-md-everything;
 
 html {
   font-size: 10px;

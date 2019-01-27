@@ -20,3 +20,5 @@ export const INITIAL_FORM_DATA: IFormData = {
   phone: '',
   email: '',
 };
+
+export const STRING_ITEMS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];

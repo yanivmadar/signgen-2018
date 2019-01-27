@@ -6,8 +6,9 @@ import { YourDetails } from './components/YourDetails/your-details';
 import { Preview } from './components/Preview/preview';
 import { HowTo } from './components/HowTo/how-to';
 import { IFormData, INITIAL_FORM_DATA } from './models/form.model';
-import { IChangeEvent } from 'react-jsonschema-form';
 import { emailFromProps } from './components/Preview/email.template';
+import { Paper, Cell, Grid, Toolbar } from 'react-md';
+import { AttIcon } from './icons';
 
 const FILE_READER = new window['FileReader']();
 
@@ -19,7 +20,7 @@ export const App: React.FC<{}> = () => {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
 
-  const updateForm = ({ formData }: IChangeEvent<IFormData>) => {
+  const updateForm = ({ formData }) => {
     if (formData.avatarFile) {
       // formData.avatar = FILE_READER.readAsDataURL(formData.avatarFile);
       formData.avatar = formData.avatarFile;
@@ -31,24 +32,23 @@ export const App: React.FC<{}> = () => {
 
   return (
     <div className="container-fluid text-left p-0">
-      <nav className="navbar navbar-dark bg-dark">
-      <a href="#"><h3 className="mb-0 att">Email Signature Generator</h3></a>
-      <a href="#"><h3 className="mb-0 float-right pop"><b>People</b> for <b>People</b></h3></a>
-      </nav>
-      <h1 className="head bg-white">
-        Create your Email Signature in few minutes!
-      </h1>
-      <div className="row p-4">
-        <div className="col">
+      <Toolbar>
+        <a href="#"><h3 className="mb-0 att">Email Signature Generator</h3></a>
+        <a href="#"><h3 className="mb-0 float-right pop"><b>People</b> for <b>People</b></h3></a>
+      </Toolbar>
+      <Grid>
+        <Cell size={3}>
           <YourDetails formData={formData} updateForm={updateForm} />
-        </div>
-        <div className="col preview">
+        </Cell>
+        <Cell size={6}>
           <Preview formData={formData} />
-        </div>
-        <div className="col">
+
+        </Cell>
+        <Cell size={3}>
           <HowTo />
-        </div>
-      </div>
+
+        </Cell>
+      </Grid>
     </div>
   );
 };

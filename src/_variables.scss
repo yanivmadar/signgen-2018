@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import '_globals';
 
 // Your variable overrides
 // $card-bg: white;
@@ -17,5 +18,15 @@ $dark: #021934;
 $spacer: 2rem;
 $input-btn-font-size: 1.4rem;
 
-// Bootstrap and its default variables
-@import 'node_modules/bootstrap/scss/bootstrap';
+
+
+$md-primary-color: $cerulean-blue;
+
+// $toolbar-height: 5rem;
+$md-btn-text-border-radius: 3.6px;
+$md-btn-desktop-font-size: 1.68rem;
+$md-btn-desktop-height: 43.2px;
+
+$md-select-field-left-padding: 0;
+
+$md-btn-light-theme-base-color: red;
