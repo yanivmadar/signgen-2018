@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import { FileUpload } from 'react-md/lib/FileInputs';
 import { IFormData } from '../../models/form.model';
 
-interface IAvatarManagerProps{
+interface IAvatarManagerProps {
   updateForm: (update: Partial<IFormData>) => void;
   setEditorRef: (ref) => void;
 }
@@ -32,20 +32,20 @@ const AvatarManager: React.FC<IAvatarManagerProps> = ({ updateForm, setEditorRef
   const _onChange = (file) => {
     // debugger;
   };
-let avatarEditor;
+  let avatarEditor;
   // const   setRef = (editor) => setEditorRef(editor);
 
   return (
-    <div>
+    <Fragment>
       <FileUpload
         id="avatar_upload"
         secondary
-        label="Select files to upload"
+        label="Upload your picture"
         onLoadStart={_setFile}
         onLoad={_onLoad}
         onChange={_onChange}
-      />
-      <AvatarEditor
+        accept="image/*"
+      /> <AvatarEditor
         image={avatar}
         width={800}
         height={550}
@@ -53,10 +53,9 @@ let avatarEditor;
         color={[255, 255, 255, 0.6]} // RGBA
         scale={1.2}
         rotate={0}
-        // ref = {setRef}
-
+      // ref = {setRef}
       />
-    </div>
+    </Fragment>
   )
 };
 

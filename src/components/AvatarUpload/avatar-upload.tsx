@@ -48,20 +48,22 @@ const AvatarUpload = ({ avatar, updateForm }) => {
   }, {
     id: 'dialog-ok',
     primary: true,
-    children: 'Ok',
+    children: 'Save',
     onClick: updateAvatar,
   }];
 
   return (
     <div>
       <Avatar src={avatar} role="presentation" />
-      <Button raised onClick={show}>Upload image</Button>
+      <Button raised onClick={show}>Select a file</Button>
       <DialogContainer
         id="avatar-manager-dialog"
         visible={isVisible}
-        title="Avatar Dialog"
+        title="Upload your picture"
         onHide={hide}
-        actions={actions}>
+        actions={actions}
+        height="554px"
+        width="800px">
         <AvatarManager updateForm={updateForm} setEditorRef={setEditorRef} />
       </DialogContainer>
     </div>
