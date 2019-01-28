@@ -1,79 +1,103 @@
-import * as React from 'react';
-import { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
+// const { Fragment, useEffect } = React;
 
-import { TextField, SelectField, SVGIcon, Avatar } from 'react-md';
+import TextField from 'react-md/lib/TextFields/TextField';
+import SVGIcon from 'react-md/lib/SVGIcons/SVGIcon';
+import SelectField from 'react-md/lib/SelectFields/SelectField';
+import FontIcon from 'react-md/lib/FontIcons/FontIcon';
+import FileInput from 'react-md//lib/FileInputs/FileInput';
 
-import { IFormData, STRING_ITEMS } from '../../models/form.model';
+import { IFormData, LOB_LIST, DOMAIN_LIST, JOB_TITLE_LIST } from '../../models/form.model';
+import { FileUpload } from 'react-md';
+import AvatarUpload from '../AvatarUpload/avatar-upload';
 
 import './your-details.scss';
 
-const icon = <SVGIcon use={'images/arrowDown.svg'} />;
-
 interface IYourDetailsProps {
   formData: IFormData;
-  updateForm: (event) => void;
+  updateForm: (update: Partial<IFormData>) => void;
 }
 
-export const YourDetails: React.FC<IYourDetailsProps> = ({ formData, updateForm }) => {
+const YourDetails: React.FC<IYourDetailsProps> = ({ formData: { first, avatar, email }, updateForm }) => {
+  const onInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.id;
+
+    updateForm({
+      [name]: value
+    });
+  }
+
+  const onSelectChange = (...args: any[]) => {
+    const { id: name, value } = args[3];
+
+    updateForm({
+      [name]: value
+    });
+  }
 
   return (<Fragment>
-    <legend className="mb-3">Your Details</legend>
-    <Avatar src={formData.avatar} role="presentation" />
-    <div className="md-grid">
-      <div className="md-grid">
-        <TextField
-          id="floating-center-title"
-          label="First Name"
-          lineDirection="center"
-          className="md-cell md-cell--6"
-        />
-        <TextField
-          id="floating-center-title"
-          label="Last Name"
-          lineDirection="center"
-          className="md-cell md-cell--6"
-        />
-        <SelectField
-          id="select-field-8"
-          placeholder="Select Title"
-          className="md-cell md-cell--12"
-          menuItems={STRING_ITEMS}
-          position={SelectField.Positions.BELOW}
-          dropdownIcon={icon}
-          simplifiedMenu={true}
-        />
-        <SelectField
-          id="select-field-8"
-          placeholder="Select LOB"
-          className="md-cell md-cell--12"
-          menuItems={STRING_ITEMS}
-          position={SelectField.Positions.BELOW}
-          dropdownIcon={icon}
-          simplifiedMenu={true}
-        />
-                <SelectField
-          id="select-field-8"
-          placeholder="Select Domain"
-          className="md-cell md-cell--12"
-          menuItems={STRING_ITEMS}
-          position={SelectField.Positions.BELOW}
-          dropdownIcon={icon}
-          simplifiedMenu={true}
-        />
-                <TextField
-          id="floating-center-title"
-          label="Phone"
-          lineDirection="center"
-          className="md-cell md-cell--12"
-        />
-                       <TextField
-          id="floating-center-title"
-          label="Email"
-          lineDirection="center"
-          className="md-cell md-cell--12"
-        />
-      </div>
-
-    </div>
+    <form onChange={onInputChange}>
+      <legend className="mb-3">Your Details</legend>
+      <AvatarUpload avatar={avatar} updateForm={updateForm} />
+      <TextField
+        id="first"
+        label="First Name"
+        lineDirection="center"
+        className="md-cell md-cell--6"
+        defaultValue={first}
+        required
+      />
+      <TextField
+        id="last"
+        label="Last Name"
+        lineDirection="center"
+        className="md-cell md-cell--6"
+        required
+      />
+      <SelectField
+        id="title"
+        placeholder="Select Title"
+        className="md-cell md-cell--12"
+        menuItems={JOB_TITLE_LIST}
+        simplifiedMenu={false}
+        sameWidth
+        onChange={onSelectChange}
+      />
+      <SelectField
+        id="lob"
+        placeholder="Select LOB"
+        className="md-cell md-cell--12"
+        menuItems={LOB_LIST}
+        simplifiedMenu={true}
+        onChange={onSelectChange}
+        sameWidth
+      />
+      <SelectField
+        id="domain"
+        placeholder="Select Domain"
+        className="md-cell md-cell--12"
+        menuItems={DOMAIN_LIST}
+        simplifiedMenu={true}
+        onChange={onSelectChange}
+        sameWidth
+      />
+      <TextField
+        id="phone"
+        label="Phone"
+        lineDirection="center"
+        className="md-cell md-cell--12"
+      />
+      <TextField
+        id="email"
+        label="Email"
+        lineDirection="center"
+        className="md-cell md-cell--12"
+        defaultValue={email}
+      />
+    </form>
   </Fragment>);
 };
+
+export default YourDetails;

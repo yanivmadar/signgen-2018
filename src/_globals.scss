@@ -1,7 +1,3 @@
-$navy: #021934;
-$cerulean-blue: #096fec;
-
-
-.float-right{
-  float: right;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import '~react-md/src/scss/react-md';
+@import 'variables';

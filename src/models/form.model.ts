@@ -1,7 +1,7 @@
 export interface IFormData{
   avatarFile?: string;
   avatar: string;
-  name: string;
+  first: string;
   last: string;
   title: string;
   lob: string;
@@ -12,7 +12,7 @@ export interface IFormData{
 
 export const INITIAL_FORM_DATA: IFormData = {
   avatar: '',
-  name: '',
+  first: '',
   last: '',
   title: '',
   lob: '',
@@ -21,4 +21,6 @@ export const INITIAL_FORM_DATA: IFormData = {
   email: '',
 };
 
-export const STRING_ITEMS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+export const JOB_TITLE_LIST = ['Job Title', 'Zero', 'One', 'Two'];
+export const LOB_LIST = ['LOB', 'Zero', 'One', 'Two'];
+export const DOMAIN_LIST = ['Domain one', 'Zero', 'One', 'Two'];

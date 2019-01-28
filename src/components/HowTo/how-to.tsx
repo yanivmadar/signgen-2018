@@ -4,7 +4,7 @@ import './how-to.scss';
 interface IHowToProps{
 }
 
-export const HowTo: React.FC<IHowToProps> = ()=>{
+const HowTo: React.FC<IHowToProps> = ()=>{
 
   return <div className="how-to">
     <legend className="mb-3">How to apply ?</legend>
@@ -19,3 +19,5 @@ export const HowTo: React.FC<IHowToProps> = ()=>{
     </ol>
   </div>;
 };
+
+export default HowTo;

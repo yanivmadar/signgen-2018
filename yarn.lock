@@ -7193,6 +7193,12 @@ react-app-polyfill@^0.2.0:
     raf "3.4.0"
     whatwg-fetch "3.0.0"
 
+react-avatar-editor@^11.0.6:
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/react-avatar-editor/-/react-avatar-editor-11.0.6.tgz#c6194397bf9d27ab35c9741959fce1313c2f2c52"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-copy-html-to-clipboard@^6.0.4:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/react-copy-html-to-clipboard/-/react-copy-html-to-clipboard-6.0.4.tgz#6ad02a675a7138e8357d879347c4615a369ed18d"

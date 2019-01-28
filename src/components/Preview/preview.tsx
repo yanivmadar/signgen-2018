@@ -1,8 +1,7 @@
-import *  as React from 'react';
-import { Fragment, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import './preview.scss';
 import { IFormData } from '../../models/form.model';
-import { emailFromProps } from './email.template';
+import { EmailSignaturePreview, renderEmailSignature } from './email-signature-preview';
 import CopyToClipboard from 'react-copy-html-to-clipboard';
 import { renderEmail } from 'react-html-email'
 import { Button, Card, CardText,CardTitle } from 'react-md';
@@ -12,12 +11,12 @@ interface IPreviewProps{
   // update: (email: string)=>void;
 }
 
-export const Preview: React.FC<IPreviewProps> = ({formData})=>{
+const Preview: React.FC<IPreviewProps> = ({formData})=>{
   const [clipboardText, setClipboardText] = useState('');
 
   const updateText = () => {
-    console.log(renderEmail(emailFromProps(formData)));
-    setClipboardText(renderEmail(emailFromProps(formData)));
+    console.log(renderEmailSignature(formData));
+    setClipboardText(renderEmailSignature(formData));
   };
 
   return <Fragment>
@@ -27,17 +26,18 @@ export const Preview: React.FC<IPreviewProps> = ({formData})=>{
       <CardTitle title="New Email"/>
       <CardText>
       <p>
-        The <code>CardText</code> component is really just useful for displaying any
-        content with some additional padding.
+        Some email-like preview
       </p>
     </CardText>
-      {emailFromProps(formData)}
+      {<EmailSignaturePreview formData={formData}/>}
   </Card>
     <CopyToClipboard text={clipboardText}
         options={{ asHtml: true }}
         onCopy={(text, result) => { console.log(`on copied: ${result}`, text)}}>
         {/* <button className="copy btn btn-primary float-right">Copy to clipboard</button> */}
-        <Button className="float-right" flat primary swapTheming onMouseDown={updateText}>Copy to clipboard</Button>
+        <Button className="float-right mt-3" flat primary swapTheming onMouseDown={updateText}>Copy to clipboard</Button>
     </CopyToClipboard>
   </Fragment>;
 };
+
+export default Preview;
