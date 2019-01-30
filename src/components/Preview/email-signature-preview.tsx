@@ -8,6 +8,8 @@ interface IEmailSignaturePreviewProps{
 }
 export const EmailSignaturePreview: React.FC<IEmailSignaturePreviewProps> = ({formData:{ first , last, title, lob, domain, phone, email, avatar }}) => {
 
+  const emailValue = email || [first || 'john', '.', last || 'doe', '@att.com'].join('');
+
   // avatar = 'https://cdn.shopifycloud.com/hatchful-web/assets/2adcef6c1f7ab8a256ebdeba7fceb19f.png';
   return (
   <Fragment>
@@ -18,7 +20,7 @@ export const EmailSignaturePreview: React.FC<IEmailSignaturePreviewProps> = ({fo
         <h6>{(title || 'Title') + ((lob || domain) ? ' | ' : '') + (lob || '') + (domain ? ((lob ? ', ' : '') + domain) : '')}<br/>
         AT&T, Technology Development</h6>
         <p>Phone: {phone || '0000000'}</p>
-        <p>Email: <span  style={{ textTransform: 'lowercase' }}>{email || [first || 'john', '.', last || 'doe', '@att.com'].join('')}</span></p>
+        <p>Email: <a  style={{ textTransform: 'lowercase' }} href={`mailto:${emailValue}`}>{emailValue}</a></p>
       </td>
       <td></td>
     </tr>

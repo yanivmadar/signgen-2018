@@ -2,6 +2,8 @@ import React, { useState, Fragment } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 import { FileUpload } from 'react-md/lib/FileInputs';
 import { IFormData } from '../../models/form.model';
+import { Avatar } from 'react-md';
+import { Metrics } from './avatar.constants';
 
 interface IAvatarManagerProps {
   updateForm: (update: Partial<IFormData>) => void;
@@ -33,7 +35,6 @@ const AvatarManager: React.FC<IAvatarManagerProps> = ({ updateForm, setEditorRef
     // debugger;
   };
   let avatarEditor;
-  // const   setRef = (editor) => setEditorRef(editor);
 
   return (
     <Fragment>
@@ -47,13 +48,14 @@ const AvatarManager: React.FC<IAvatarManagerProps> = ({ updateForm, setEditorRef
         accept="image/*"
       /> <AvatarEditor
         image={avatar}
-        width={800}
-        height={550}
+        width={Metrics.SIZE}
+        height={Metrics.SIZE}
         border={50}
         color={[255, 255, 255, 0.6]} // RGBA
         scale={1.2}
         rotate={0}
-      // ref = {setRef}
+        borderRadius={Metrics.SIZE/2}
+        ref={setEditorRef}
       />
     </Fragment>
   )

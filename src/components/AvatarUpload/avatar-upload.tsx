@@ -4,6 +4,7 @@ import { IFormData } from '../../models/form.model';
 import Avatar from 'react-md/lib/Avatars/Avatar';
 import { DialogContainer, Button, DialogContainerProps } from 'react-md';
 import AvatarManager from './AvatarManager';
+import AvatarEditor from 'react-avatar-editor';
 
 interface IFile {
   name: string;
@@ -28,18 +29,22 @@ interface IAvatarUploadProps {
 const AvatarUpload = ({ avatar, updateForm }) => {
 
   const [isVisible, setVisible] = useState(false);
-  const [editorRef, setEditorRef] = useState({});
+  const [editorRef, setEditorRef] = useState<AvatarEditor | null>(null);
 
   const show = () => setVisible(true);
   const hide = () => setVisible(false);
 
   const updateAvatar = () => {
-    hide();
     if (editorRef) {
-      // let f = editorRef['getImage']();
+      const canvas = editorRef.getImageScaledToCanvas().toDataURL();
+      fetch(canvas)
+        .then(res => res.url)
+        .then(blob => updateForm({ avatar: blob}));
+
     }
+    hide();
   };
-  // const dialogRef = React.createRef<React.ComponentClass<DialogContainerProps>>();
+
   const actions = [{
     id: 'dialog-cancel',
     secondary: true,

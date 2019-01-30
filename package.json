@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-avatar-editor": "^10.3.2",
     "bootstrap": "^4.2.1",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.0",

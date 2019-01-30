@@ -20,9 +20,7 @@ interface IYourDetailsProps {
 
 const YourDetails: React.FC<IYourDetailsProps> = ({ formData: { first, avatar, email }, updateForm }) => {
   const onInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.id;
+    const {id: name, value} = event.target;
 
     updateForm({
       [name]: value
@@ -45,7 +43,7 @@ const YourDetails: React.FC<IYourDetailsProps> = ({ formData: { first, avatar, e
         id="first"
         label="First Name"
         lineDirection="center"
-        className="md-cell md-cell--6"
+        className="md-cell md-cell--5"
         defaultValue={first}
         required
       />
@@ -53,7 +51,7 @@ const YourDetails: React.FC<IYourDetailsProps> = ({ formData: { first, avatar, e
         id="last"
         label="Last Name"
         lineDirection="center"
-        className="md-cell md-cell--6"
+        className="md-cell md-cell--5"
         required
       />
       <SelectField
