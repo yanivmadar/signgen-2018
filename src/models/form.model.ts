@@ -21,10 +21,7 @@ export const INITIAL_FORM_DATA: IFormData = {
   email: '',
 };
 
-export const JOB_TITLE_LIST = ['Job Title', 'Zero', 'One', 'Two'];
-export const LOB_LIST = [
-  'Emerging Technologies',
-  'Netcom',
-  'Entertainment & Mobility',
-];
-export const DOMAIN_LIST = ['Domain one', 'Zero', 'One', 'Two'];
+export const fillData = async (name: string, update)=>{
+  const { data } = await fetch(`/data/${name}.json`).then(data => data.json());
+  update(data);
+};
